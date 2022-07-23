@@ -584,7 +584,6 @@ do
         return (AimingSettings.Enabled == true and Aiming.Selected.Instance)
     end
 end
-
 --[[
 -- // Get Closest Target Part
 function Aiming.GetClosestTargetPartToCursor(Character)
@@ -628,7 +627,7 @@ function Aiming.GetClosestTargetPartToCursor(Character)
             ShortestDistance = Magnitude
         end
     end
---]]
+
     -- // String check
     if (typeof(TargetParts) == "string") then
         -- // Check if it all
@@ -658,6 +657,8 @@ function Aiming.GetClosestTargetPartToCursor(Character)
     -- //
     return ClosestPart, ClosestPartPosition, ClosestPartOnScreen, ClosestPartMagnitudeFromMouse
 end
+
+--]]
 
 -- //
 local PreviousPosition = nil
@@ -694,7 +695,7 @@ function Aiming.GetClosestToCursor(deltaTime)
         -- // Make sure isn't ignored and Character exists
         if (Ignored.IsIgnored(Player) == false and Character) then
             -- // Vars
-            local TargetPartTemp, PartPositionTemp, PartPositionOnScreenTemp, Magnitude = Aiming.GetClosestTargetPartToCursor(Character)
+            local TargetPartTemp, PartPositionTemp, PartPositionOnScreenTemp, Magnitude
 
             -- // Check if part exists, health and custom
             if (TargetPartTemp and Checks.Health(Player) and Checks.Custom(Player)) then
